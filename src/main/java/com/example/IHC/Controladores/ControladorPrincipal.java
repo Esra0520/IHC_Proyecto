@@ -172,7 +172,31 @@ public class ControladorPrincipal {
         Anuncios c = new Anuncios();
         c.setDescripcion(descripcion);
         serviceA.Guardar(c);
+
+        List<Usuario> usuarios = service.Listar();
+
+        // Enviar correo electrónico a cada usuario registrado
+        for (Usuario usuario : usuarios) {
+        try {
+            enviarCorreo(usuario.getCorreo(),descripcion);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
         return ListarAnuncio(model);
+    }
+
+    public void enviarCorreo(String destino, String descripcion) {
+        try {
+            MimeMessage message = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            helper.setTo(destino);
+            helper.setSubject("Nuevo Anuncio\n");
+            helper.setText("Se ha publicado un nuevo anuncio:\n" + descripcion);
+            javaMailSender.send(message);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @GetMapping("/eliminarAnuncio")
