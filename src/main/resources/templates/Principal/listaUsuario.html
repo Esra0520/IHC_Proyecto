@@ -39,6 +39,7 @@
                         <th scope="col">Nombres</th>
                         <th scope="col">Apellido</th>
                         <th scope="col">Correo</th>
+                        <th scope="col">Fecha Registro</th>
                         <th scope="col">Username</th>
                         <th scope="col">Contraseña</th>
                         <th scope="col">Editar</th>
@@ -52,6 +53,7 @@
                         <td th:text="${usuario.nombre}"></td>
                         <td th:text="${usuario.apellido}"></td>
                         <td th:text="${usuario.correo}"></td>
+                        <td th:text="${#dates.format(usuario.fechaRegistro, 'dd/MM/yyyy')}"></td>
                         <td th:text="${usuario.username}"></td>
                         <td th:text="${usuario.contra}"></td>
                         <td>
