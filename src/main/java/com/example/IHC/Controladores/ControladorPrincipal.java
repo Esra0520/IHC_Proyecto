@@ -46,6 +46,17 @@ public class ControladorPrincipal {
             // Aquí puedes realizar acciones adicionales con la entrada de voz, como buscar en una base de datos, etc.
         }
     }
+
+    @GetMapping("/dashboard")
+    public String Dashboard(Model model) {
+        List<Usuario> usuario = service.Listar();
+        List<Anuncios> anuncio = serviceA.Listar();
+
+        model.addAttribute("UsuarioDash", usuario.size());
+        model.addAttribute("anuncios", anuncio);
+        model.addAttribute("usuarios", usuario);
+        return carpeta + "DashBoard";
+    }
     
     @GetMapping("/lp")
     public String LandingPage(){
