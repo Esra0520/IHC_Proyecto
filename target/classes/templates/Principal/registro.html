@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LOGIN</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <style>
+            body{
+                background-image: url("https://unae.edu.ec/wp-content/uploads/2022/11/manos-click.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .login{
+                background: rgba(97, 106, 107,.6);
+                padding: 15px;
+                margin-left:15px;
+                padding-top: 15px;
+                border-radius: 20px;
+
+            }
+
+            .botones{
+                background-color: #338573;
+                border-color: #338573;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row justify-content-center pt-5 mt-5 mr-1">
+                <div class="col-md-5 login">
+
+                    <div class="d-flex justify-content-between pt-2">
+                        <a th:href="@{/princ/login}" class="nav-link active"><i class="bi bi-arrow-left-square-fill"></i> REGRESAR</a>
+                        <label class="d-flex align-items-center"><i class="bi bi-person-circle"></i> REGISTRO
+                        </label>
+                    </div>
+                    <br>
+                    <form action="/princ/registrarUsuario" method="post" class="row g-3">
+
+
+                        <div class="my-3"></div>
+                        <div class="row">
+                            <div class="col-md-10 mx-auto">
+                                <input type="text" class="form-control" name="nom" placeholder="Nombre" required>
+                            </div></div>
+
+
+                        <div class="my-2"></div>
+                        <div class="row">
+                            <div class="col-md-10 mx-auto">
+                                <input type="text" class="form-control" name="ape" placeholder="Apellido" required>
+                            </div></div>
+
+                        <div class="my-2"></div>
+                        <div class="row">
+                            <div class="col-md-10 mx-auto">
+                                <input type="email" class="form-control" name="correo" placeholder="Correo" required>
+                            </div></div>
+
+                        <br>
+
+                        <div class="my-2"></div>
+                        <div class="row">
+                            <div class="col-md-10 mx-auto">
+                                <input type="text" class="form-control" name="user" placeholder="Usuario" required>
+                            </div></div>
+
+
+                        <div class="my-2"></div>
+                        <div class="row">
+                            <div class="col-md-10 mx-auto">
+                                <input type="password"  class="form-control" name="contra" placeholder="Password" required>
+                            </div>
+                        </div>
+
+                        <div class="my-2"></div>
+                        <div class="col-12">
+                            <center><button type="submit" class="btn btn-success botones">REGISTRAR</button></center>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
