@@ -62,6 +62,34 @@ public class ControladorPrincipal {
         return carpeta2 + "nuevoUsuario"; //nuevoCliente.html
     }
 
+    public void enviarCorreo(int id, String destino, String descripcion) {
+        try {
+            MimeMessage message = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            helper.setTo(destino);
+            helper.setSubject("Nuevo Anuncio\n");
+            helper.setText("Se ha publicado un nuevo anuncio Nro " + id + "\n" + descripcion);
+            javaMailSender.send(message);
+        } catch (Exception e) {
+            // Manejar cualquier excepción que pueda ocurrir al enviar el correo electrónico
+            e.printStackTrace();
+        }
+    }
+
+    public void actualizarCorreo(int id, String destino, String descripcion) {
+        try {
+            MimeMessage message = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            helper.setTo(destino);
+            helper.setSubject("Anuncio Actualizado\n");
+            helper.setText("Se actualizo el Anuncio Nro " + id + "\n" + descripcion);
+            javaMailSender.send(message);
+        } catch (Exception e) {
+            // Manejar cualquier excepción que pueda ocurrir al enviar el correo electrónico
+            e.printStackTrace();
+        }
+    }
+
     @PostMapping("/registrarUsuario") //localhost/cliente/registrar
     public String RegistrarUsuario(
             @RequestParam("nom") String nom,
